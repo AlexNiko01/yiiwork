@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\BadRequestHttpException;
+use app\models\TestForm;
 
 class PostController extends AppController
 {
@@ -32,8 +33,9 @@ class PostController extends AppController
 
     public function actionIndex()
     {
+        $model = new TestForm();
         $this->view->title = 'Posts';
-        return $this->render('test');
+        return $this->render('test',['model' => $model]);
     }
 
     public function actionShow()
