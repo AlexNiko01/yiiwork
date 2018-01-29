@@ -16,4 +16,4 @@ $('#btn').on('click', function() {
         });
     });
 JS;
-$this->registerJs($script);; ?>
+$this->registerJs($script); ?>

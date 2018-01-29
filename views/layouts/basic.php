@@ -1,6 +1,8 @@
 <?php
 /* @var $this \yii\web\View */
+
 /* @var $content string */
+
 use app\assets\AppAsset;
 use yii\helpers\Html;
 
@@ -14,7 +16,8 @@ AppAsset::register($this);
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <!--        --><? //= Html::csrfMetaTags() ?>
+        <title><?= $this->title ?></title>
         <?php $this->head() ?>
     </head>
     <body>
@@ -35,6 +38,9 @@ AppAsset::register($this);
 
             </ul>
 
+            <?php if (isset($this->blocks['block1'])): ; ?>
+                <?php echo $this->blocks['block1']; ?>
+            <?php endif; ?>
             <?php echo $content; ?>
         </div>
     </div>
