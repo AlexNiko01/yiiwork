@@ -26,8 +26,8 @@ $this->registerJs($script);
 
 echo '<br/><br/>';
 $form = ActiveForm::begin(['options' => ['class' => 'form-horizontal']]);
-echo $form->field($model, 'name')->label('Cat Name')->textInput(['placeholder' => 'Cat Name']);
-echo $form->field($model, 'email')->label('Cat Email')->input('email');
+echo $form->field($model, 'name')->textInput(['placeholder' => 'Cat Name']);
+echo $form->field($model, 'email')->input('email',['placeholder' => 'Cat Email']);
 echo $form->field($model, 'text')->textarea(['placeholder' => 'Cat Text', 'rows' => 4]);
 echo Html::submitButton('Send', ['class' => ' btn btn-success']);
 ActiveForm::end();
