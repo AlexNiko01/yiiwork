@@ -34,8 +34,17 @@ class PostController extends AppController
     public function actionIndex()
     {
         $model = new TestForm();
+        if ($model->load(Yii::$app->request->post())) {
+            debug($model);
+//            if($model->validate()){
+//
+//            }else{
+//
+//            }
+        }
+
         $this->view->title = 'Posts';
-        return $this->render('test',['model' => $model]);
+        return $this->render('test', ['model' => $model]);
     }
 
     public function actionShow()
