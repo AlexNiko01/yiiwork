@@ -26,7 +26,7 @@ AppAsset::register($this);
         <div class="container">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <?php echo Html::a('Main', '/web/', ['class' => 'nav-link active']); ?>
+                    <?php echo Html::a('Main', '/', ['class' => 'nav-link active']); ?>
 
                 </li>
                 <li class="nav-item">
