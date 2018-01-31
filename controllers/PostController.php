@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Category;
 use Yii;
 use yii\web\BadRequestHttpException;
 use app\models\TestForm;
@@ -37,10 +38,10 @@ class PostController extends AppController
         if ($model->load(Yii::$app->request->post())) {
 //            debug($model);
             if ($model->validate()) {
-                Yii::$app->session->setFlash('success','The data is received');
+                Yii::$app->session->setFlash('success', 'The data is received');
                 return $this->refresh();
             } else {
-                Yii::$app->session->setFlash('error','Something is went wrong. this is ERROR');
+                Yii::$app->session->setFlash('error', 'Something is went wrong. this is ERROR');
             }
         }
 
@@ -53,11 +54,15 @@ class PostController extends AppController
         $this->view->title = 'Post';
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'key words']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'description words']);
+
+//        $cats = Category::find()->orderBy(['id' => SORT_DESC])->all();
+        $cats = Category::find()->asArray(['id' => SORT_DESC])->where(['parent'=> 691])->all();
+
         if (Yii::$app->request->isAjax) {
             debug(Yii::$app->request->post());
             return 'test';
         }
-        return $this->render('show');
+        return $this->render('show', ['cats' => $cats]);
     }
 }
 
