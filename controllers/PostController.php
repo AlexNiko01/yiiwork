@@ -35,12 +35,13 @@ class PostController extends AppController
     {
         $model = new TestForm();
         if ($model->load(Yii::$app->request->post())) {
-            debug($model);
-//            if($model->validate()){
-//
-//            }else{
-//
-//            }
+//            debug($model);
+            if ($model->validate()) {
+                Yii::$app->session->setFlash('success','The data is received');
+                return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error','Something is went wrong. this is ERROR');
+            }
         }
 
         $this->view->title = 'Posts';
