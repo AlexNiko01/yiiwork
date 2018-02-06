@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\Product;
 use Yii;
 use yii\web\BadRequestHttpException;
 use app\models\TestForm;
@@ -62,11 +63,13 @@ class PostController extends AppController
 //        $cats = Category::find()->asArray(['id' => SORT_DESC])->where(['parent'=> 691])->limit(2)->all();
 //        $cats = Category::find()->asArray(['id' => SORT_DESC])->where(['parent'=> 691])->limit(1)->one();
 //        $cats = Category::find()->asArray()->count();
-        $cats = Category::findOne(['parent'=> 691]);
+//        $cats = Category::findOne(['parent' => 691]);
         if (Yii::$app->request->isAjax) {
             debug(Yii::$app->request->post());
             return 'test';
         }
+        $cats = Category::findOne(694);
+
         return $this->render('show', ['cats' => $cats]);
     }
 }
