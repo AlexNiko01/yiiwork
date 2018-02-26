@@ -21,10 +21,15 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'css/flyacts.css',
 //        'css/styles.css',
     ];
     public $js = [
-//        'js/scripts.js'
+        'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/1.3.0/jquery.scrollmagic.debug.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/1.3.0/jquery.scrollmagic.min.js',
+        'js/TweenMax.min.js',
+        'js/ScrollToPlugin.min.js',
+        'js/scripts.js'
     ];
     public $jsOptions = ['position' => \yii\web\View::POS_END];
     public $depends = [

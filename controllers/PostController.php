@@ -65,7 +65,7 @@ class PostController extends AppController
 //        $cats = Category::find()->asArray()->count();
 //        $cats = Category::findOne(['parent' => 691]);
         if (Yii::$app->request->isAjax) {
-            debug(Yii::$app->request->post());
+//            debug(Yii::$app->request->post());
             return 'test';
         }
         $cats = Category::findOne(694);
